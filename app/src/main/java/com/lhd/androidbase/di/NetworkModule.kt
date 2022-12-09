@@ -1,7 +1,6 @@
 package com.lhd.androidbase.di
 
 import com.lhd.androidbase.BuildConfig
-import com.lhd.androidbase.data.apis.*
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

@@ -3,7 +3,6 @@ package com.lhd.androidbase.ui.home
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.lhd.androidbase.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.Assert.*
 import org.junit.Rule
 
 @ExperimentalCoroutinesApi
