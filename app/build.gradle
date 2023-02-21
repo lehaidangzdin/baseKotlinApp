@@ -16,16 +16,16 @@ android {
         dataBinding = true
     }
 
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.fatherofapps.androidbase"
+        applicationId "com.lhd.androidbase"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.fatherofapps.androidbase.CustomTestRunner"
+        testInstrumentationRunner "com.lhd.androidbase.CustomTestRunner"
     }
 
 
@@ -156,7 +156,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:2.25.0'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
-    testImplementation "androidx.test.ext:junit-ktx:1.1.4"
+    testImplementation "androidx.test.ext:junit-ktx:1.1.5"
     testImplementation "org.robolectric:robolectric:4.5.1"
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     def androidx_test_core_version = '1.5.0'
@@ -168,7 +168,7 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
     androidTestImplementation "org.mockito:mockito-android:$mockito_version"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
-    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.4"
+    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.5"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$ok_httpclient_version"
     androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt_version"
