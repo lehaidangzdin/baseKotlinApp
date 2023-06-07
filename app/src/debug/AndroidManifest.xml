@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lhd.androidbase">
+    package="com.lhd.android">
 
     <application>
         <activity
-            android:name="com.lhd.androidbase.HiltTestActivity"
+            android:name="com.lhd.android.HiltTestActivity"
             android:exported="false"  />
     </application>
 
