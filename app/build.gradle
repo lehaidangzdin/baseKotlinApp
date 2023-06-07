@@ -89,6 +89,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
 
 
+    // splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     // constraint layout
     def constraintlayout_version = '2.1.4'
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
