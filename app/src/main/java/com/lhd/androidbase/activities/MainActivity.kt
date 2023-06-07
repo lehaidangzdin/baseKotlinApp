@@ -17,7 +17,6 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.e("Frank", "MainActivity")
         super.onCreate(savedInstanceState)
-        Thread.sleep(1000)
         installSplashScreen()
         setContentView(R.layout.activity_main)
         loadingLayout = findViewById(R.id.loadingLayout)
