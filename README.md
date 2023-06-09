@@ -1,2 +1,2 @@
 # baseKotlinApp
-# cre: https://github.com/frank-nhatvm
+# cre: [https://github.com/frank-nhatvm/fatherofapps-android-mvvm]
