@@ -1,11 +1,23 @@
 package com.lhd.androidbase.data.modelJson
 
+import com.lhd.androidbase.data.models.Product
+
 data class ResProductJson(
-    val category: String,
-    val description: String,
     val id: Int,
-    val image: String,
+    val title: String,
     val price: Double,
-    val ratingJson: RatingJson,
-    val title: String
-)
+    val description: String,
+    val category: String,
+    val image: String,
+    val rating: RatingJson
+){
+    fun toProduct():Product{
+        return Product(
+            category = category,
+            description= description,
+            image = image,
+            price= price,
+            title= title
+        )
+    }
+}

@@ -14,6 +14,9 @@ open class BaseFragment : Fragment() {
     protected fun navigateToPage(actionId: Int){
         findNavController().navigate(actionId)
     }
+    protected fun backStack(){
+        findNavController().popBackStack()
+    }
 
     protected fun showLoading(isShow: Boolean) {
         val activity = requireActivity()

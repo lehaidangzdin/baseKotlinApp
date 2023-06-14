@@ -11,7 +11,7 @@ import com.lhd.androidbase.R
 class ErrorDialog (
     context: Context,
     private val errorContent: String,
-    private val textButton: String? = null
+    private val textButton: String? = "OK"
 ) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {

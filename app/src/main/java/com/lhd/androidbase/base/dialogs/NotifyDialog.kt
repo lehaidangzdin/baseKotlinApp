@@ -9,11 +9,11 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.HtmlCompat
 import com.lhd.androidbase.R
 
-class NotifyDialog (
+class NotifyDialog(
     context: Context,
     private val title: String,
     private val message: String,
-    private val textButton: String? = null
+    private val textButton: String? = "OK"
 ) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {

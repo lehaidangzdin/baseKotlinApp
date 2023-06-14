@@ -6,6 +6,7 @@ import com.lhd.androidbase.data.models.Product
 import retrofit2.Response
 import retrofit2.http.*
 
+
 interface FakeStoreApi {
 
     @GET("products")

@@ -8,6 +8,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.lhd.androidbase.R
 import com.lhd.androidbase.base.activities.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.log
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -20,8 +21,6 @@ class MainActivity : BaseActivity() {
         installSplashScreen()
         setContentView(R.layout.activity_main)
         loadingLayout = findViewById(R.id.loadingLayout)
-
-
     }
 
     override fun showLoading(isShow: Boolean) {

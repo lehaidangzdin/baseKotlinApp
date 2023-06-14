@@ -81,9 +81,9 @@ open class BaseViewModel : ViewModel() {
                 networkException.postValue(Event(e))
             }
             else -> {
-                val unknowException = BaseNetworkException()
-                unknowException.mainMessage = e.message ?: "Something went wrong"
-                baseNetworkException.postValue(Event(unknowException))
+                val unknownException = BaseNetworkException()
+                unknownException.mainMessage = e.message ?: "Something went wrong"
+                baseNetworkException.postValue(Event(unknownException))
             }
         }
     }

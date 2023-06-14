@@ -1,6 +1,6 @@
 package com.lhd.androidbase.data.modelJson
 
 data class RatingJson(
-    val count: Int,
-    val rate: Double
+    val rate: Double,
+    val count: Int
 )

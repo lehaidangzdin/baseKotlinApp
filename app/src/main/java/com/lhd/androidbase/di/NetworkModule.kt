@@ -1,6 +1,7 @@
 package com.lhd.androidbase.di
 
 import com.lhd.androidbase.BuildConfig
+import com.lhd.androidbase.data.apis.FakeStoreApi
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -19,33 +20,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
-//    @Provides
-//    fun provideCustomerAPI(@Named("MainSite") retrofit: Retrofit): CustomerAPI {
-//        return retrofit.create(CustomerAPI::class.java)
-//    }
+
+    @Provides
+    fun provideFakeStoreAPI(@Named("FakeStore") retrofit: Retrofit): FakeStoreApi {
+        return retrofit.create(FakeStoreApi::class.java)
+    }
 
 
     @Provides
     @Singleton
-    @Named("MainSite")
+    @Named("FakeStore")
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
 
-        return Retrofit.Builder().addConverterFactory(moshiConverterFactory)
-            .baseUrl(BuildConfig.BASE_URL)
-            .client(okHttpClient)
-            .build()
-    }
-
-    @Provides
-    @Singleton
-    @Named("FatherOfApps")
-    fun provideRetrofitNewYorkTime(
-        okHttpClient: OkHttpClient,
-        moshiConverterFactory: MoshiConverterFactory
-    ): Retrofit {
         return Retrofit.Builder().addConverterFactory(moshiConverterFactory)
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)

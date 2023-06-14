@@ -16,7 +16,7 @@ class FakeStoreRepository @Inject constructor(
     suspend fun getAllProduct() = withContext(dispatcher) {
         when (val res = fakeStoreRemoteService.getAllProduct()) {
             is NetworkResult.Success -> {
-                res.data
+                res.data.map { it.toProduct() }
             }
             is NetworkResult.Error -> {
                 throw res.exception
