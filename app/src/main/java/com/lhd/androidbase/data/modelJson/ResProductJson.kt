@@ -10,14 +10,15 @@ data class ResProductJson(
     val category: String,
     val image: String,
     val rating: RatingJson
-){
-    fun toProduct():Product{
+) {
+    fun toProduct(): Product {
         return Product(
+            id = id,
             category = category,
-            description= description,
+            description = description,
             image = image,
-            price= price,
-            title= title
+            price = price,
+            title = title
         )
     }
 }

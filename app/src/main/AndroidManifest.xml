@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Main">
         <activity
-            android:name=".MainActivity2"
+            android:name=".activities.MainActivity2"
             android:exported="false" />
 
         <service

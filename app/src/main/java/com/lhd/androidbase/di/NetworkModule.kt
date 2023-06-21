@@ -1,5 +1,7 @@
 package com.lhd.androidbase.di
 
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.firestore.FirebaseFirestore
 import com.lhd.androidbase.BuildConfig
 import com.lhd.androidbase.data.apis.FakeStoreApi
 
@@ -24,6 +26,12 @@ class NetworkModule {
     @Provides
     fun provideFakeStoreAPI(@Named("FakeStore") retrofit: Retrofit): FakeStoreApi {
         return retrofit.create(FakeStoreApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providerFirebaseStorage(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
     }
 
 

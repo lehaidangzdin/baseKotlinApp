@@ -12,6 +12,7 @@ import com.lhd.androidbase.base.fragment.BaseFragment
 import com.lhd.androidbase.data.models.Product
 import com.lhd.androidbase.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.log
 
 
 @AndroidEntryPoint
@@ -39,12 +40,13 @@ class HomeFragment : BaseFragment(), ProductAdapter.OnClickItem {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         registerAllExceptionEvent(viewModel, viewLifecycleOwner)
         registerObserverLoadingEvent(viewModel, viewLifecycleOwner)
-        viewModel.lsProduct.observe(viewLifecycleOwner) { products ->
-            if (products?.isNotEmpty() == true) {
-                adapter.setData(products)
-                adapter.setOnClickItem(this)
-                binding.recyclerView.adapter = adapter
-            }
+        viewModel.lsProduct2.observe(viewLifecycleOwner) { products ->
+            Log.d("TAGGGG", "onViewCreated: $products")
+//            if (products?.isNotEmpty() == true) {
+//                adapter.setData(products)
+//                adapter.setOnClickItem(this)
+//                binding.recyclerView.adapter = adapter
+//            }
         }
     }
 
