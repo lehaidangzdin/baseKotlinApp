@@ -15,6 +15,7 @@ apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 android {
     buildFeatures{
         dataBinding = true
+        viewBinding true
     }
 
     compileSdkVersion 33

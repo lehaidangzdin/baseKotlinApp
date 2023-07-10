@@ -16,9 +16,9 @@ import kotlin.math.log
 
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), ProductAdapter.OnClickItem {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
+    ProductAdapter.OnClickItem {
 
-    private lateinit var binding: FragmentHomeBinding
     private val viewModel by viewModels<HomeViewModel>()
     private var adapter = ProductAdapter(arrayListOf())
 
@@ -27,26 +27,17 @@ class HomeFragment : BaseFragment(), ProductAdapter.OnClickItem {
         viewModel.fetchData()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater)
-        binding.lifecycleOwner = viewLifecycleOwner
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.lifecycleOwner = viewLifecycleOwner
         registerAllExceptionEvent(viewModel, viewLifecycleOwner)
         registerObserverLoadingEvent(viewModel, viewLifecycleOwner)
-        viewModel.lsProduct2.observe(viewLifecycleOwner) { products ->
-            Log.d("TAGGGG", "onViewCreated: $products")
-//            if (products?.isNotEmpty() == true) {
-//                adapter.setData(products)
-//                adapter.setOnClickItem(this)
-//                binding.recyclerView.adapter = adapter
-//            }
+        viewModel.lsProduct.observe(viewLifecycleOwner) { products ->
+//            Log.d("TAGGGG", "onViewCreated: $products")
+            if (products?.isNotEmpty() == true) {
+                adapter.setData(products)
+                adapter.setOnClickItem(this)
+                binding.recyclerView.adapter = adapter
+            }
         }
     }
 
