@@ -1,10 +1,8 @@
 package com.lhd.androidbase.di
 
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.firestore.FirebaseFirestore
 import com.lhd.androidbase.BuildConfig
+import com.lhd.androidbase.data.apis.FakeImagesApi
 import com.lhd.androidbase.data.apis.FakeStoreApi
-
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -15,7 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -24,26 +21,31 @@ class NetworkModule {
 
 
     @Provides
-    fun provideFakeStoreAPI(@Named("FakeStore") retrofit: Retrofit): FakeStoreApi {
+    fun provideFakeStoreAPI(retrofit: Retrofit): FakeStoreApi {
         return retrofit.create(FakeStoreApi::class.java)
     }
 
     @Provides
-    @Singleton
-    fun providerFirebaseStorage(): FirebaseFirestore {
-        return FirebaseFirestore.getInstance()
+    fun provideFakeImagesAPI(retrofit: Retrofit): FakeImagesApi {
+        return retrofit.create(FakeImagesApi::class.java)
     }
+
+//    @Provides
+//    @Singleton
+//    fun providerFirebaseStorage(): FirebaseFirestore {
+//        return FirebaseFirestore.getInstance()
+//    }
 
 
     @Provides
     @Singleton
-    @Named("FakeStore")
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         moshiConverterFactory: MoshiConverterFactory
     ): Retrofit {
 
         return Retrofit.Builder().addConverterFactory(moshiConverterFactory)
+//            .baseUrl(BuildConfig.BASE_URL)
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()

@@ -51,5 +51,15 @@
         <item name="android:background">?android:attr/colorBackground</item>
     </style>
 
+    <!--    -->
+
+    <style name="Black" parent="@style/Theme.AppCompat">
+        <item name="actionAndroidIcon">@drawable/ic_android_black_24dp_dark</item>
+    </style>
+
+
+    <style name="Light" parent="@style/Theme.AppCompat.Light">
+        <item name="actionAndroidIcon">@drawable/ic_android_black_24dp_light</item>
+    </style>
 
 </resources>

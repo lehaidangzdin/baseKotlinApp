@@ -71,7 +71,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     protected fun showNotify(title: String?, message: String) {
         val activity = requireActivity()
         if (activity is BaseActivity) {
-            activity.showNotifyDialog(title ?: getDefaultNotifyTitle(), message)
+            activity.showNotifyDialog(message, title ?: getDefaultNotifyTitle())
         }
     }
 
@@ -96,7 +96,7 @@ abstract class BaseFragment<VB : ViewBinding>(
         viewLifecycleOwner: LifecycleOwner
     ) {
         viewModel.networkException.observe(viewLifecycleOwner, EventObserver {
-            showNotify(getDefaultNotifyTitle(), it.message ?: "Network error")
+            showNotify(getDefaultNotifyTitle(), it.responseMessage ?: "Network error")
         })
     }
 
@@ -144,5 +144,6 @@ abstract class BaseFragment<VB : ViewBinding>(
             showLoading(isShow)
         })
     }
+
 
 }

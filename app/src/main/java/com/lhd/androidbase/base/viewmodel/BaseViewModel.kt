@@ -1,5 +1,6 @@
 package com.lhd.androidbase.base.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.lhd.androidbase.base.network.BaseNetworkException
@@ -34,7 +35,7 @@ open class BaseViewModel : ViewModel() {
     var parentJob: Job? = null
         protected set
 
-    protected fun registerJobFinish(){
+    protected fun registerJobFinish() {
         parentJob?.invokeOnCompletion {
             showLoading(false)
         }
@@ -64,7 +65,7 @@ open class BaseViewModel : ViewModel() {
         isLoading.postValue(Event(isShow))
     }
 
-    protected fun showLoadingMore(isShow: Boolean){
+    protected fun showLoadingMore(isShow: Boolean) {
         isLoadingMore.postValue(Event(isShow))
     }
 
@@ -73,13 +74,16 @@ open class BaseViewModel : ViewModel() {
     }
 
     protected open fun parseErrorCallApi(e: Throwable) {
+        Log.e(TAG, "parseErrorCallApi: ${e.message}")
         when (e) {
             is BaseNetworkException -> {
                 baseNetworkException.postValue(Event(e))
             }
+
             is NetworkErrorException -> {
                 networkException.postValue(Event(e))
             }
+
             else -> {
                 val unknownException = BaseNetworkException()
                 unknownException.mainMessage = e.message ?: "Something went wrong"
@@ -90,6 +94,10 @@ open class BaseViewModel : ViewModel() {
 
     open fun fetchData() {
 
+    }
+
+    companion object {
+        const val TAG = "BASE VIEW MODEL"
     }
 
 }

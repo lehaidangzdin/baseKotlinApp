@@ -7,15 +7,16 @@ import androidx.lifecycle.viewModelScope
 import com.lhd.androidbase.base.viewmodel.BaseViewModel
 import com.lhd.androidbase.data.models.Product
 import com.lhd.androidbase.data.repositories.FakeStoreRepository
-import com.lhd.androidbase.data.repositories.FirebaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val productRepository: FakeStoreRepository,
-    private val firebaseRepository: FirebaseRepository
+//    private val firebaseRepository: FirebaseRepository
 ) :
     BaseViewModel() {
 
@@ -42,6 +43,19 @@ class HomeViewModel @Inject constructor(
 //            Log.d("TAGGGG", "fetchData: $result")
         }
         registerJobFinish()
+    }
+
+    fun callMultipleApi() {
+        viewModelScope.launch(handler) {
+            val mergedRes = listOf(
+                async { productRepository.getAProduct("1") },
+                async { productRepository.getAllProduct() }
+            ).awaitAll()
+
+            Log.e("TAG", "callMultipleApi: $mergedRes")
+
+        }
+
     }
 
 }

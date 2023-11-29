@@ -33,6 +33,5 @@
             android:contentDescription="none"
             android:loadImage="@{product.component4()}" />
 
-
     </LinearLayout>
 </layout>

@@ -6,4 +6,6 @@
         <item name="android:background">@drawable/app_widget_background</item>
     </style>
 
+
+
 </resources>

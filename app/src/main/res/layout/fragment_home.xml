@@ -8,24 +8,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_marginBottom="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:text="List product"
-            android:gravity="center_horizontal"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:padding="6dp"
-            tools:listitem="@layout/item_product"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/group_39662"
+            app:tint="?attr/colorPrimary" />
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/txt"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="16dp"-->
+        <!--            android:gravity="center_horizontal"-->
+        <!--            android:text="List product2222"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="18sp" />-->
+
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/recyclerView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:clipToPadding="false"-->
+        <!--            android:padding="6dp"-->
+        <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+        <!--            tools:listitem="@layout/item_product" />-->
 
     </LinearLayout>
 </layout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/imageFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -9,8 +9,7 @@
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment"
-            app:enterAnim="@anim/nav_default_enter_anim" />
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -20,9 +19,11 @@
         <action
             android:id="@+id/action_searchFragment_to_homeFragment2"
             app:destination="@id/homeFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_enter_anim"
             app:popUpTo="@+id/homeFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.lhd.androidbase.ui.fake_image.ImageFragment"
+        android:label="ImageFragment" />
 </navigation>
