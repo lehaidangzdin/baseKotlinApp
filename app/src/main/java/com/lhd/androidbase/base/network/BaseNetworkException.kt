@@ -1,13 +1,11 @@
 package com.lhd.androidbase.base.network
 
-class BaseNetworkException (
+class BaseNetworkException(
     val responseMessage: String? = null,
     val responseCode: Int = -1
 ) : Exception() {
 
     var mainMessage = ""
 
-    fun parseFromString(errorBody: String) {
-
-    }
+    fun parseFromString(errorBody: String) {}
 }

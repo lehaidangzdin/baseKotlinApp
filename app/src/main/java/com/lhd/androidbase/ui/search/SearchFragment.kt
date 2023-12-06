@@ -1,6 +1,7 @@
 package com.lhd.androidbase.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.lhd.androidbase.base.fragment.BaseFragment
 import com.lhd.androidbase.databinding.FragmentSearchBinding
@@ -13,9 +14,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
-        binding.txtBack.setOnClickListener {
-            backStack()
+        binding.bg.setOnTouchListener { _, e ->
+            Log.e("TAGGGGGGGG", "onViewCreated: x=${e.x} || y=${e.y}")
+            binding.cCir.drawCircle(e.x, e.y)
+            false
         }
+
+
     }
 
 }

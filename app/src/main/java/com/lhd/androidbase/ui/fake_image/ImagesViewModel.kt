@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lhd.androidbase.base.viewmodel.BaseViewModel
+import com.lhd.androidbase.common.Logger
 import com.lhd.androidbase.data.repositories.FakeImageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,6 +29,7 @@ class ImagesViewModel @Inject constructor(
         parentJob = viewModelScope.launch(handler) {
             val image = imageRepository.getAllImage()
             _lsImage.postValue(image.data)
+            Logger.log(TAG, "$lsImage")
         }
         registerJobFinish()
     }

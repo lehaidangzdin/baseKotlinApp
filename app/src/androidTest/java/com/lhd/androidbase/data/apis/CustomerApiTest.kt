@@ -26,7 +26,7 @@ class CustomerApiTest {
 
     private lateinit var mockServer: MockWebServer
 
-    private lateinit var countryAPI: CustomerAPI
+    private lateinit var fakeStoreApi: FakeStoreApi
 
     @Before
     fun setup() {
@@ -40,7 +40,7 @@ class CustomerApiTest {
             .baseUrl(url)
             .build()
 
-        countryAPI = retrofit.create(CustomerAPI::class.java)
+        fakeStoreApi = retrofit.create(FakeStoreApi::class.java)
     }
 
     @After
