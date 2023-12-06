@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import com.lhd.androidbase.R
 import java.util.Random
@@ -11,8 +12,7 @@ import java.util.Random
 
 class CircleCanvas(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
-    private var mPaint: Paint? = null
-    private var mCanvas: Canvas? = null
+    private var mPaint = Paint()
     private var mPivotX: Float = height.toFloat()
     private var mPivotY: Float = width.toFloat()
 
@@ -22,9 +22,8 @@ class CircleCanvas(context: Context, attrs: AttributeSet) : View(context, attrs)
 
 
     init {
-        mPaint = Paint()
-        mCanvas = Canvas()
 
+        //
         setupAttrs(attrs)
     }
 
@@ -51,20 +50,19 @@ class CircleCanvas(context: Context, attrs: AttributeSet) : View(context, attrs)
 //        mPivotX = random.nextInt(maxX - minX + 1) + minX
 //        mPivotY = random.nextInt(maxY - minY + 1) + minY
         mPivotX = x
-        mPivotY = y - mRadius
+        mPivotY = y
         //important. Refreshes the view by calling onDraw function
         invalidate()
     }
 
     //what I want to draw is here
     override fun onDraw(canvas: Canvas) {
-        mCanvas = canvas
-        super.onDraw(mCanvas)
-        mPaint!!.color = mColor
-        mPaint!!.style = Paint.Style.FILL_AND_STROKE
-        mPaint!!.isAntiAlias = true
-        mPaint!!.strokeWidth = 5f
-//        drawCircle()
-        canvas.drawCircle(mPivotX.toFloat(), mPivotY.toFloat(), mRadius.toFloat(), mPaint!!)
+        super.onDraw(canvas)
+        mPaint.color = mColor
+        mPaint.style = Paint.Style.FILL_AND_STROKE
+        mPaint.isAntiAlias = true
+        mPaint.strokeWidth = 5f
+        canvas.drawCircle(mPivotX, mPivotY, mRadius, mPaint)
+        Log.e("TAGgg", "onDraw: $width , $height")
     }
 }
