@@ -8,6 +8,12 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="com.lhd.androidbase.permission.C2D_MESSAGE" />
+    <!---->
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:name="com.lhd.androidbase.CustomApplication"
@@ -34,15 +40,15 @@
             android:name=".activities.MainActivity2"
             android:exported="false" />
 
-<!--        <service-->
-<!--            android:name=".common.MyFirebaseCloudService"-->
-<!--            android:exported="true"-->
-<!--            android:permission="com.google.android.c2dm.permission.SEND">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-<!--                <action android:name="com.goole.android.c2dm.intent.RECEIVE" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
+        <!--        <service-->
+        <!--            android:name=".common.MyFirebaseCloudService"-->
+        <!--            android:exported="true"-->
+        <!--            android:permission="com.google.android.c2dm.permission.SEND">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+        <!--                <action android:name="com.goole.android.c2dm.intent.RECEIVE" />-->
+        <!--            </intent-filter>-->
+        <!--        </service>-->
 
         <activity
             android:name=".activities.MainActivity"

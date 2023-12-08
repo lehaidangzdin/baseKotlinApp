@@ -45,37 +45,38 @@ open class BaseActivity : AppCompatActivity() {
         )
     }
 
-    open fun showConfirmDialog(
-        titleResourceId: Int,
-        messageResourceId: Int = -1,
-        positiveTitleResourceId: Int,
-        negativeTitleResourceId: Int,
-        textButtonResourceId: Int = -1,
-        callback: ConfirmDialog.ConfirmCallback
-    ) {
-        val title = getString(titleResourceId)
-        val message = if (messageResourceId != -1) getString(messageResourceId) else null
-        val negativeButtonTitle = getString(negativeTitleResourceId)
-        val positiveButtonTitle = getString(positiveTitleResourceId)
-        val textButton = if (textButtonResourceId == -1) null else getString(textButtonResourceId)
-
-        showConfirmDialog(
-            title,
-            message,
-            negativeButtonTitle,
-            positiveButtonTitle,
-            textButton,
-            callback
-        )
-    }
+//    open fun showConfirmDialog(
+//        titleResourceId: Int,
+//        messageResourceId: Int = -1,
+//        positiveTitleResourceId: Int,
+//        negativeTitleResourceId: Int,
+//        textButtonResourceId: Int = -1,
+//        posCallback: () -> Unit,
+//        nevCallback: () -> Unit
+//    ) {
+//        val title = getString(titleResourceId)
+//        val message = if (messageResourceId != -1) getString(messageResourceId) else null
+//        val negativeButtonTitle = getString(negativeTitleResourceId)
+//        val positiveButtonTitle = getString(positiveTitleResourceId)
+//        val textButton = if (textButtonResourceId == -1) null else getString(textButtonResourceId)
+//
+//        showConfirmDialog(
+//            title,
+//            message,
+//            negativeButtonTitle,
+//            positiveButtonTitle,
+//            posCallback,
+//            nevCallback,
+//        )
+//    }
 
     open fun showConfirmDialog(
         title: String,
         message: String?,
         positiveButtonTitle: String,
         negativeButtonTitle: String,
-        textButton: String?,
-        callback: ConfirmDialog.ConfirmCallback
+        posCallback: () -> Unit,
+        nevCallback: () -> Unit,
     ) {
         val confirmDialog = ConfirmDialog(
             context = this,
@@ -83,7 +84,8 @@ open class BaseActivity : AppCompatActivity() {
             message = message,
             positiveButtonTitle = positiveButtonTitle,
             negativeButtonTitle = negativeButtonTitle,
-            callback = callback
+            posCallback = posCallback,
+            nevCallback = nevCallback
         )
         confirmDialog.show()
         confirmDialog.window?.setGravity(Gravity.CENTER)

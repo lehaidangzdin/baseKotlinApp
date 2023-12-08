@@ -20,12 +20,12 @@
             android:layout_gravity="center"
             android:text="Draw" />
 
-        <com.lhd.androidbase.ui.search.CircleCanvas
-            android:id="@+id/cCir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:colorCir="@color/background_splash_color"
-            app:radiusCir="100" />
+<!--        <com.lhd.androidbase.ui.search.CircleCanvas-->
+        <!--            android:id="@+id/cCir"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:colorCir="@color/background_splash_color"-->
+        <!--            app:radiusCir="100" />-->
 
     </LinearLayout>
 </layout>

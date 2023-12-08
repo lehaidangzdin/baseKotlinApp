@@ -82,6 +82,25 @@ abstract class BaseFragment<VB : ViewBinding>(
         }
     }
 
+    protected fun showConfirmDialog(
+        title: String,
+        message: String,
+        posCallback: () -> Unit,
+        nevCallback: () -> Unit,
+    ) {
+        val activity = requireActivity()
+        if (activity is BaseActivity) {
+            activity.showConfirmDialog(
+                title = title,
+                message = message,
+                "ok",
+                "cancel",
+                posCallback = posCallback,
+                nevCallback = nevCallback,
+            )
+        }
+    }
+
     protected fun registerObserverExceptionEvent(
         viewModel: BaseViewModel,
         viewLifecycleOwner: LifecycleOwner

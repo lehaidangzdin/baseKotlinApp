@@ -10,7 +10,8 @@ import com.lhd.androidbase.R
 
 class ConfirmDialog constructor(
     context: Context,
-    private val callback: ConfirmCallback?,
+    private val posCallback: () -> Unit,
+    private val nevCallback: () -> Unit,
     private val title: String,
     private val message: String?,
     private val positiveButtonTitle: String,
@@ -33,14 +34,14 @@ class ConfirmDialog constructor(
         val btnNegative = findViewById<Button>(R.id.btnNegative)
         btnNegative.text = negativeButtonTitle
         btnNegative.setOnClickListener {
-            callback?.negativeAction()
+            nevCallback
             dismiss()
         }
 
         val btnPositive = findViewById<Button>(R.id.btnPositive)
         btnPositive.text = positiveButtonTitle
         btnPositive.setOnClickListener {
-            callback?.positiveAction()
+            posCallback()
             dismiss()
         }
 
