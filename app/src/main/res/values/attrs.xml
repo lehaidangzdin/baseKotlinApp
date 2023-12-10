@@ -13,4 +13,12 @@
         <attr name="colorCir" format="color" />
         <attr name="radiusCir" format="float" />
     </declare-styleable>
+
+    <declare-styleable name="CustomProgress">
+        <attr name="bgColor" format="color" />
+        <attr name="proColor" format="color" />
+        <attr name="proRadius" format="float" />
+        <attr name="proHeight" format="float" />
+        <attr name="proWidthMileS" format="float" />
+    </declare-styleable>
 </resources>

@@ -49,7 +49,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 //        }
 
         PermissionManager.requestPermissions(
-            activity!!, permissions,
+            requireActivity(), permissions,
             {
                 Log.e(TAG, "onViewCreated: permission granted")
             },

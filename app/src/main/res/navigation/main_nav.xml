@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/customProgressFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -26,4 +26,8 @@
         android:id="@+id/imageFragment"
         android:name="com.lhd.androidbase.ui.fake_image.ImageFragment"
         android:label="ImageFragment" />
+    <fragment
+        android:id="@+id/customProgressFragment"
+        android:name="com.lhd.androidbase.ui.custom_progressbar.CustomProgressFragment"
+        android:label="CustomProgressFragment" />
 </navigation>
