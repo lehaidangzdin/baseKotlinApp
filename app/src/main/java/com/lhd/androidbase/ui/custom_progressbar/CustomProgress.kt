@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import com.lhd.androidbase.R
-import kotlin.math.min
+import java.lang.Integer.min
 
 
 class CustomProgress(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
@@ -21,6 +21,8 @@ class CustomProgress(context: Context?, attrs: AttributeSet?) : View(context, at
     private var mRadius: Float = 10f
     private var mHeightPro: Float = 20f
     private var mWidthMileStones: Float = 5f
+    private var mLsTitle = arrayOf("20", "30", "60")
+    private var proFrontSize = 16f
 
     //
     var lsMileStones = arrayOf<Float>()
@@ -56,49 +58,66 @@ class CustomProgress(context: Context?, attrs: AttributeSet?) : View(context, at
         }
     }
 
-    private fun drawBgProgress(canvas: Canvas?) {
+    private fun drawBgProgress(canvas: Canvas) {
         mPaint.color = if (mColorBgProgress == 0) Color.BLACK else mColorBgProgress
         drawCenterBar(mPaint, canvas, width.toFloat())
     }
 
-    private fun drawProgress(canvas: Canvas?) {
+    private fun drawMileStones(canvas: Canvas) {
+        mPaint.color = Color.BLUE
+        val barTop = (height - mHeightPro) / 2
+        val barBottom = (height + mHeightPro) / 2
+        val padding = mHeightPro * 0.2f
+        val fontSizeDefault = 16f
+        //
+        lsMileStones.forEachIndexed { i, value ->
+            canvas.drawRect(
+                value * width,
+                barTop - padding,
+                (value * width) + mWidthMileStones,
+                barBottom + padding,
+                mPaint
+            )
+
+            val textSize = mPaint.textSize
+            mPaint.textSize = fontSizeDefault + proFrontSize
+            mPaint.textAlign = Paint.Align.CENTER
+            canvas.drawText(
+                mLsTitle[i],
+                value * width,
+                height.toFloat(),
+                mPaint
+            )
+            mPaint.textSize = textSize
+        }
+
+    }
+
+    private fun drawProgress(canvas: Canvas) {
         mPaint.color = if (mColorProgress == 0) Color.RED else mColorProgress
         drawCenterBar(mPaint, canvas, width * progress)
     }
 
-    private fun drawMileStones(canvas: Canvas?) {
-        mPaint.color = Color.BLACK
-        lsMileStones.forEach { value ->
-            canvas!!.drawRect(
-                value * width,
-                0f,
-                (value * width) + 5f,
-                height.toFloat(),
-                mPaint
-            )
-        }
-    }
 
-
-    private fun drawCenterBar(paint: Paint, canvas: Canvas?, width: Float) {
+    private fun drawCenterBar(paint: Paint, canvas: Canvas, width: Float) {
         val barTop = (height - mHeightPro) / 2
         val barBottom = (height + mHeightPro) / 2
 
         val rect = RectF(0f, barTop, width, barBottom)
-        canvas!!.drawRoundRect(rect, mRadius, mRadius, paint)
+        canvas.drawRoundRect(rect, mRadius, mRadius, paint)
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        drawBgProgress(canvas)
+        drawBgProgress(canvas!!)
         drawProgress(canvas)
         drawMileStones(canvas)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         // default size when chose wrap_content
-        val desiredWidth = 50
-        val desiredHeight = 50
+        val desiredWidth = 100
+        val desiredHeight = 100
 
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)

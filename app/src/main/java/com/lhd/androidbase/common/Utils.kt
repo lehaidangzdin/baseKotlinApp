@@ -4,8 +4,9 @@ import android.content.Context
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import java.text.DecimalFormat
 
-object Utils{
+object Utils {
 
     fun validateEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
@@ -28,10 +29,12 @@ object Utils{
                     hasDigitCharacter = true;
                     count++;
                 }
+
                 Character.isUpperCase(character) -> {
                     hasUpperCase = true;
                     count++;
                 }
+
                 Character.isLowerCase(character) -> {
                     hasLowerCase = true;
                     count++;
@@ -56,10 +59,15 @@ object Utils{
         ).toInt()
     }
 
-    fun hideSoftKeyboard(view: View,context: Context) {
+    fun hideSoftKeyboard(view: View, context: Context) {
         val imm: InputMethodManager? =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
         imm?.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    fun convertText(value: Float): String {
+        val dec = DecimalFormat("###")
+        return dec.format(value)
     }
 
 

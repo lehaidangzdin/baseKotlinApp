@@ -25,13 +25,9 @@
             android:layout_height="wrap_content"
             app:bgColor="@color/material_dynamic_primary80"
             app:proColor="@color/background_splash_color"
-            app:proHeight="50"
+            app:proHeight="20"
             app:proRadius="50" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="asdasd" />
 
     </LinearLayout>
 </layout>
