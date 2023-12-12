@@ -35,7 +35,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/test_widget_info" />
         </receiver>
-
         <activity
             android:name=".activities.MainActivity2"
             android:exported="false" />
