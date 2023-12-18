@@ -18,6 +18,20 @@
             android:padding="8dp"
             android:text="Example service"
             android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="btn" />
+
+        <TextView
+            android:id="@+id/idIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
             android:textSize="16sp" />
 
     </LinearLayout>

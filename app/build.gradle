@@ -104,6 +104,7 @@ dependencies {
 
     // splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     // constraint layout
     def constraintlayout_version = '2.1.4'
