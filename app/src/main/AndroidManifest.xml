@@ -37,6 +37,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/test_widget_info" />
         </receiver>
+
+        <service
+            android:name=".ui.example_service.JobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
         <activity
             android:name=".activities.MainActivity2"
             android:exported="false" />
