@@ -48,7 +48,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 //            )
 //        }
 
-        requestPermission()
+//        requestPermission()
 
     }
 
