@@ -28,7 +28,7 @@ class ImagesViewModel @Inject constructor(
         showLoading(true)
         parentJob = viewModelScope.launch(handler) {
             val image = imageRepository.getAllImage()
-            _lsImage.postValue(image.data)
+            _lsImage.value = image.data!!
             Logger.log(TAG, "$lsImage")
         }
         registerJobFinish()

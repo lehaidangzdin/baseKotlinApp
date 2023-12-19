@@ -33,5 +33,9 @@
     <fragment
         android:id="@+id/exampleServiceFragment"
         android:name="com.lhd.androidbase.ui.example_service.ExampleServiceFragment"
-        android:label="ExampleServiceFragment" />
+        android:label="ExampleServiceFragment" >
+        <action
+            android:id="@+id/action_exampleServiceFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>

@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -19,6 +20,12 @@
             android:text="Example service"
             android:textColor="@color/black"
             android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnDoWork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start work" />
 
     </LinearLayout>
 </layout>

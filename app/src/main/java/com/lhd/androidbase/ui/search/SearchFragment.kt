@@ -48,6 +48,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 //            )
 //        }
 
+        requestPermission()
+
+    }
+
+    private fun requestPermission() {
         PermissionManager.requestPermissions(
             requireActivity(), permissions,
             {
@@ -70,7 +75,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 )
             },
         )
-
     }
 
     companion object {

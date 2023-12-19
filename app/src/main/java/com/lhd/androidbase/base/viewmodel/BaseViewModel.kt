@@ -97,7 +97,7 @@ open class BaseViewModel : ViewModel() {
     }
 
     companion object {
-        const val TAG = "BASE VIEW MODEL"
+        const val TAG = "BASE_VIEW_MODEL"
     }
 
 }
