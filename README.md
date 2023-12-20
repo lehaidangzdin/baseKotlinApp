@@ -4,4 +4,4 @@
 
 # Clean Architecture
 
-[./assets/clean.png]
+[https://github.com/lehaidangzdin/baseKotlinApp/blob/master/assets/clean.png]
