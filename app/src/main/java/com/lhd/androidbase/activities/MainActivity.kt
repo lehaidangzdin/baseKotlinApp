@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         loadingLayout = findViewById(R.id.loadingLayout)
         //
-        scheduleJob(this)
+//        scheduleJob(this)
     }
 
     override fun showLoading(isShow: Boolean) {

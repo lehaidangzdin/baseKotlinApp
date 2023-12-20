@@ -54,11 +54,14 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideOKHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        myInterceptor: MyInterceptor,
+        retryInterceptor: RetryInterceptor,
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
-
-        builder.interceptors().add(httpLoggingInterceptor)
+            .addInterceptor(myInterceptor)
+            .addInterceptor(httpLoggingInterceptor)
+//            .addInterceptor(retryInterceptor)
         return builder.build()
     }
 
@@ -68,6 +71,18 @@ class NetworkModule {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return httpLoggingInterceptor
+    }
+
+    @Provides
+    @Singleton
+    fun provideHttpInterceptor(): MyInterceptor {
+        return MyInterceptor()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetryHttpInterceptor(): RetryInterceptor {
+        return RetryInterceptor()
     }
 
     @Provides

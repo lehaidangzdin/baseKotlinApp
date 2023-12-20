@@ -7,5 +7,7 @@ class BaseNetworkException(
 
     var mainMessage = ""
 
-    fun parseFromString(errorBody: String) {}
+    fun parseFromString(errorBody: String) {
+        mainMessage = errorBody
+    }
 }

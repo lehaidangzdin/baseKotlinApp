@@ -14,13 +14,25 @@ open class BaseRemoteService : BaseService() {
 
         return if (response.isSuccessful) {
             if (response.body() == null) {
-                NetworkResult.Error(BaseNetworkException(responseMessage =  "Response without body", responseCode = 200))
+                NetworkResult.Error(
+                    BaseNetworkException(
+                        responseMessage = "Response without body",
+                        responseCode = 200
+                    )
+                )
             } else {
                 NetworkResult.Success(response.body()!!)
             }
         } else {
             val errorBody = response.errorBody()?.string() ?: ""
-            NetworkResult.Error(parseError(response.message(), response.code(), errorBody))
+//            NetworkResult.Error(parseError(response.message(), response.code(), errorBody))
+            NetworkResult.Error(
+                parseError(
+                    response.message() ,
+                    response.code(),
+                    errorBody
+                )
+            )
         }
     }
 
