@@ -7,8 +7,6 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.FrameLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.lhd.androidbase.R
 import com.lhd.androidbase.base.activities.BaseActivity
@@ -17,8 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
-
-    private var loadingLayout: FrameLayout? = null
 
     companion object {
         private const val PERIODIC_TIME: Long = 15 * 60 * 1000
@@ -29,14 +25,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContentView(R.layout.activity_main)
-        loadingLayout = findViewById(R.id.loadingLayout)
-        //
 //        scheduleJob(this)
     }
 
-    override fun showLoading(isShow: Boolean) {
-        loadingLayout?.visibility = if (isShow) View.VISIBLE else View.GONE
-    }
 
     private fun scheduleJob(context: Context) {
         val componentName = ComponentName(context, JobSchedulerService::class.java)

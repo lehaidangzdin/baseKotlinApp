@@ -1,17 +1,36 @@
 package com.lhd.androidbase.base.activities
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.lhd.androidbase.base.dialogs.ConfirmDialog
 import com.lhd.androidbase.base.dialogs.ErrorDialog
+import com.lhd.androidbase.base.dialogs.LoadingDialog
 import com.lhd.androidbase.base.dialogs.NotifyDialog
 
 open class BaseActivity : AppCompatActivity() {
+    private var loadingDialog: LoadingDialog? = null
 
 
     open fun showLoading(isShow: Boolean) {
-
+        if (isShow) {
+            loadingDialog = LoadingDialog(this)
+            loadingDialog?.show()
+            loadingDialog?.window?.setGravity(Gravity.CENTER)
+            loadingDialog?.window?.setLayout(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+//            loadingDialog?.window?.setElevation(0f)
+            loadingDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        } else {
+            loadingDialog?.let {
+                if (it.isShowing)
+                    it.dismiss()
+            }
+        }
     }
 
     open fun showErrorDialog(message: String) {

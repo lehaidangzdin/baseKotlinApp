@@ -23,7 +23,7 @@ class ImagesViewModel @Inject constructor(
         get() = _lsImage
 
     private var _registerResponse = MutableLiveData<RegisterResponseEntity>()
-    val registerResponse: LiveData<RegisterResponseEntity>
+    val lvdRegister: LiveData<RegisterResponseEntity>
         get() = _registerResponse
 
     companion object {

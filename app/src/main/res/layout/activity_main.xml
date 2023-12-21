@@ -15,21 +15,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_nav" />
 
-    <FrameLayout
-        android:id="@+id/loadingLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/darker_gray"
-        android:clickable="true"
-        android:elevation="12dp"
-        android:focusable="true"
-        android:visibility="gone">
+<!--    <FrameLayout-->
+<!--        android:id="@+id/loadingLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:alpha="0.4"-->
+<!--        android:background="@android:color/darker_gray"-->
+<!--        android:clickable="true"-->
+<!--        android:elevation="12dp"-->
+<!--        android:focusable="true"-->
+<!--        android:visibility="gone">-->
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+<!--        <ProgressBar-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center" />-->
 
 
-    </FrameLayout>
+<!--    </FrameLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

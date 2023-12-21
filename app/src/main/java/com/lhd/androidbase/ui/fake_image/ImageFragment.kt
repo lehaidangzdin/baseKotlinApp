@@ -1,10 +1,11 @@
 package com.lhd.androidbase.ui.fake_image
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.lhd.androidbase.base.fragment.BaseFragment
+import com.lhd.androidbase.common.Utils
 import com.lhd.androidbase.data.entity.params_entity.RegisterEntity
 import com.lhd.androidbase.databinding.FragmentImageBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,12 +33,26 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(FragmentImageBinding::i
 //        }
         //
         binding.btnRegister.setOnClickListener {
-            val username = binding.edUsername.text.trim().toString()
-            val email = binding.edEmail.text.trim().toString()
-            val password = binding.edUsername.text.trim().toString()
-            val params = RegisterEntity(username, email, password)
+            val username = binding.edUsername.text
+            val email = binding.edEmail.text
+            val password = binding.edPassword.text
+            val params = RegisterEntity(
+                username.trim().toString(),
+                email.trim().toString(),
+                password.trim().toString()
+            )
             viewModel.register(params)
-            Log.e(TAG, "registerObserver: $username, $email, $password")
+            // after click btn
+            Utils.hideSoftKeyboard(view!!, requireContext())
+            username.clear()
+            email.clear()
+            password.clear()
+        }
+        //
+        viewModel.lvdRegister.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(requireContext(), "Register success!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
