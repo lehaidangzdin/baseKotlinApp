@@ -9,9 +9,9 @@ abstract class BaseService {
         errorBody: String?
     ): BaseNetworkException {
 
-        val baseNetworkException =  BaseNetworkException(responseMessage,responseCode)
-        errorBody?.let{
-            baseNetworkException.parseFromString(it)
+        val baseNetworkException = BaseNetworkException(responseMessage, responseCode)
+        errorBody?.let {
+            baseNetworkException.parseFromString(responseMessage ?: it)
         }
 
         return baseNetworkException
@@ -20,8 +20,6 @@ abstract class BaseService {
     protected fun parseNetworkErrorException(throwable: Throwable): NetworkErrorException {
         return NetworkErrorException(throwable.message)
     }
-
-
 
 
 }

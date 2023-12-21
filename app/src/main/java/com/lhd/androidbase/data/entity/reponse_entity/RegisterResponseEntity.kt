@@ -6,14 +6,14 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class RegisterResponseEntity(
-    @Json(name = "authentication")
-    val authentication: Authentication,
     @Json(name = "email")
     val email: String,
-    @Json(name = "_id")
-    val id: String,
     @Json(name = "username")
-    val username: String
+    val username: String,
+    @Json(name = "authentication")
+    val authentication: Authentication,
+    @Json(name = "_id")
+    val id: String
 )
 
 @JsonClass(generateAdapter = true)

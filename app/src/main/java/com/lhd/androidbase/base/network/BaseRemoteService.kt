@@ -28,7 +28,7 @@ open class BaseRemoteService : BaseService() {
 //            NetworkResult.Error(parseError(response.message(), response.code(), errorBody))
             NetworkResult.Error(
                 parseError(
-                    response.message() ,
+                    response.message(),
                     response.code(),
                     errorBody
                 )

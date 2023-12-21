@@ -9,6 +9,7 @@ import com.lhd.androidbase.data.entity.params_entity.RegisterEntity
 import com.lhd.androidbase.data.entity.reponse_entity.RegisterResponseEntity
 import com.lhd.androidbase.data.repositories.FakeImageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,19 +39,18 @@ class ImagesViewModel @Inject constructor(
         showLoading(true)
         parentJob = viewModelScope.launch(handler) {
             val image = imageRepository.getAllImage()
-//            Log.e(TAG, "fetchData: ${image.data}")
-            _lsImage.value = (image.data as List<String>?)!!
-//            Logger.log(TAG, "$lsImage")
+            Log.e(TAG, "fetchData: ${image.data}")
+//            _lsImage.postValue(image.data)
         }
         registerJobFinish()
     }
 
     fun register(registerModel: RegisterEntity) {
-        // TODO: LỖI CONVERT MODEL
         showLoading(true)
-        viewModelScope.launch {
+        parentJob = viewModelScope.launch(handler) {
+            delay(3000)
             val register = imageRepository.register(registerEntity = registerModel)
-            _registerResponse.postValue(register.data as RegisterResponseEntity)
+            _registerResponse.postValue(register.data)
             Log.e(TAG, "register: $register")
         }
         registerJobFinish()

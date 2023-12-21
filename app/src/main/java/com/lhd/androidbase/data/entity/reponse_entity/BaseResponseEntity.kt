@@ -4,14 +4,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class ResponseEntity(
+data class BaseResponseEntity<T>(
     @Json(name = "data")
-    val data: Any?,
+    val data: T,
     @Json(name = "e")
-    val e: Any?,
+    val e: String?,
     @Json(name = "message")
     val message: String,
     @Json(name = "status")
     val status: Int
-
 )
+
+
