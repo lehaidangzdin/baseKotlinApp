@@ -9,8 +9,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_10"
             android:src="@drawable/group_39662"
             app:tint="?attr/colorPrimary" />
 

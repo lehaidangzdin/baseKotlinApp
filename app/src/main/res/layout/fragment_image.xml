@@ -40,8 +40,8 @@
 
         <Button
             android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginTop="8dp"
             android:text="Register" />
     </LinearLayout>

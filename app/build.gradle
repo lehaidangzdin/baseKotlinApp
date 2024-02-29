@@ -7,13 +7,14 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
 }
-
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
+apply from: '../autodimension.gradle'
+
 android {
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding true
     }
@@ -120,7 +121,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     // moshi
-    def  moshi_version = '1.15.0'
+    def moshi_version = '1.15.0'
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
 
     // okhttpclient
@@ -135,11 +136,11 @@ dependencies {
     // hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
-    implementation ("androidx.hilt:hilt-work:1.0.0")
+    implementation("androidx.hilt:hilt-work:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
     // coroutine
-    def  coroutines_version = '1.7.1'
+    def coroutines_version = '1.7.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     // viewpager 2
@@ -190,7 +191,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit-ktx:1.1.5"
     androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:$ok_httpclient_version"
-    androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
 
 
